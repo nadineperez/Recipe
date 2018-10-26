@@ -163,67 +163,32 @@ input[type=submit] {
          <h1 style="color:black;">Find a recipe!</h1>
 
       <!--autocomplete-->
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" id="ingredients_entries" style="width:300px;">
-            <input id="input1" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input2" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input3" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input4" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input5" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input6" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
-      <form autocomplete="off" action="/action_page.php">
-         <div class="autocomplete" style="width:300px;">
-            <input id="input7" type="text" name="myIngredient" placeholder="Ingredient">
-         </div>
-         <input type="submit" value="Add Ingredient">
-      </form>
+      <div id="submission">
+         <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+               <input id="input1" type="text" name="myIngredient" placeholder="Ingredient">
+            </div>
+            <input type="submit" value="Add Ingredient">
+         </form>
+      </div>
+
+      <div class="list">
+      </div>
+
+      <div class="form__group">
+         <button onclick="addIngredients()" type="button"><h4>Add More Ingredients</h4></button>
+      </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script>
       var ingredients = ["Sugar","Vanilla","Flour","Pumpkin","Apple","Banana"];
-
-      // var ingredient_form = "";
-      // // for (var i=0; i < 3; i++) {
-      //  ingredient_form += '<form autocomplete="off" action="/action_page.php">';
-      //  ingredient_form += '<div class="autocomplete" style="width:300px;">';
-      //  ingredient_form += '<input id="input' + 1 + '"' + 'type="text" name="myIngredient" placeholder="Ingredient">';
-      //  ingredient_form += '</div>';
-      //  ingredient_form += '<input type="submit" value="Add Ingredient">';
-      //  ingredient_form += '</form>';
-      //  console.log(ingredient_form);
-      // // }
-      // var element = document.getElementById('ingredients_entries');
-      // element.append(ingredient_form);
+      var cloneCount = 1;
+      function addIngredients() {
+         console.log("add ingredients " + cloneCount);
+         $("#submission").clone().attr('id', 'id'+ cloneCount++).appendTo(".list");
+      }
 
       function autocomplete(inp, arr) {
          /*the autocomplete function takes two arguments,
@@ -322,22 +287,9 @@ input[type=submit] {
          });
       }
 
-      for (var x = 1; x < 8; x++) {
-         var input = 'input' + x;
-         console.log(input);
-         autocomplete(document.getElementById(input), ingredients);
-      }
-
-      // autocomplete(document.getElementById("input2"), ingredients);
-      // autocomplete(document.getElementById("input3"), ingredients);
-
       </script>
    </script>
    <!--autocomplete-->
-
-   <div class="form__group">
-      <button class="btn" type="button"><h4>Register</h4></button>
-   </div>
 
 </form>
 </div>
