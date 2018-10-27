@@ -166,7 +166,7 @@ input[type=submit] {
       <div id="submission">
          <form autocomplete="off" action="/action_page.php">
             <div class="autocomplete" style="width:300px;">
-               <input id="input1" type="text" name="myIngredient" placeholder="Ingredient">
+               <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
             </div>
             <input type="submit" value="Add Ingredient">
          </form>
@@ -185,9 +185,11 @@ input[type=submit] {
       <script>
       var ingredients = ["Sugar","Vanilla","Flour","Pumpkin","Apple","Banana"];
       var cloneCount = 1;
+
       function addIngredients() {
-         console.log("add ingredients " + cloneCount);
-         $("#submission").clone().attr('id', 'id'+ cloneCount++).appendTo(".list");
+         $("#submission").clone().attr('id', 'submission'+ cloneCount).appendTo(".list");
+         $('#submission').find('#input').attr('id', 'input'+ cloneCount);
+         cloneCount++;
       }
 
       function autocomplete(inp, arr) {
@@ -286,6 +288,11 @@ input[type=submit] {
             closeAllLists(e.target);
          });
       }
+      // autocomplete(document.getElementsByTagName("INPUT")[0], ingredients);
+      // for (var x = 1; x < cloneCount; x++) {
+      //    autocomplete(document.getElementsByTagName("INPUT")[x], ingredients);
+      // }
+
 
       </script>
    </script>
