@@ -1,1 +1,119 @@
+<style>
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 
+}
+.user {
+   width: 90%;
+   max-width: 340px;
+   margin: 10vh auto;
+}
+.user__header {
+   text-align: center;
+   opacity: 0;
+   transform: translate3d(0, 500px, 0);
+   animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+.user__title {
+   font-size: $font-size;
+   margin-bottom: -10px;
+   font-weight: 500;
+   color: white;
+}
+
+/*autocomplete*/
+
+* { box-sizing: border-box; }
+body {
+   font: 16px Arial;
+}
+.autocomplete {
+   /*the container must be positioned relative:*/
+   position: relative;
+   display: inline-block;
+}
+input {
+   border: 1px solid transparent;
+   background-color: #f1f1f1;
+   padding: 10px;
+   font-size: 16px;
+}
+input[type=text] {
+   background-color: #f1f1f1;
+   width: 100%;
+}
+input[type=submit] {
+   background-color: DodgerBlue;
+   color: #fff;
+}
+.autocomplete-items {
+   position: absolute;
+   border: 1px solid #d4d4d4;
+   border-bottom: none;
+   border-top: none;
+   z-index: 99;
+   /*position the autocomplete items to be the same width as the container:*/
+   top: 100%;
+   left: 0;
+   right: 0;
+}
+.autocomplete-items div {
+   padding: 10px;
+   cursor: pointer;
+   background-color: #fff;
+   border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+   /*when hovering an item:*/
+   background-color: #e9e9e9;
+}
+.autocomplete-active {
+   /*when navigating through the items using the arrow keys:*/
+   background-color: DodgerBlue !important;
+   color: #ffffff;
+}
+/*autocomplete*/
+
+&:hover {
+   background: darken($color-primary, 5%);
+}
+}
+@keyframes NO {
+   from, to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+   }
+   10%, 30%, 50%, 70%, 90% {
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+   }
+   20%, 40%, 60%, 80% {
+      -webkit-transform: translate3d(10px, 0, 0);
+      transform: translate3d(10px, 0, 0);
+   }
+}
+@keyframes arrive {
+   0% {
+      opacity: 0;
+      transform: translate3d(0, 50px, 0);
+   }
+
+   100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+   }
+}
+@keyframes move {
+   0% {
+      background-position: 0 0
+   }
+   50% {
+      background-position: 100% 0
+   }
+   100% {
+      background-position: 0 0
+   }
+}
+</style>
