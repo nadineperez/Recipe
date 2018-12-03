@@ -42,25 +42,27 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       <!-- Banner -->
       <section id="banner" style="padding: 2em 0 0em 0 ;">
          <div style=" margin:0 auto;">
-         <h1 style="color:black;">Find a recipe!</h1>
+
 
       <!--autocomplete-->
-      <div id="submission">
-         <form autocomplete="off" action="/action_page.php">
-            <div class="autocomplete" style="width:300px;">
-               <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
-            </div>
-            <input type="submit" value="Add Ingredient">
-         </form>
-      </div>
+      <div class="Main ingredientInput">
+        <h1 style="color:black;">Find a recipe!</h1>
+        <div id="submission">
+           <form autocomplete="off" action="/action_page.php">
+              <div class="autocomplete" style="width:300px;">
+                 <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
+              </div>
+              <input type="submit" value="Add Ingredient">
+           </form>
+        </div>
 
-      <div class="list">
-      </div>
+        <div class="list">
+        </div>
 
-      <div class="form__group">
-         <button onclick="addIngredients()" type="button"><h4>Add More Ingredients</h4></button>
-      </div>
-
+        <div class="form__group">
+           <button onclick="addIngredients()" type="button"><h4>Add More Ingredients</h4></button>
+        </div>
+    </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -176,8 +178,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       //    autocomplete(document.getElementsByTagName("INPUT")[x], ingredients);
       // }
       </script>
-   </script>
    <!--autocomplete-->
+
+   <!-- Adding ingredients into the box -->
+   <div class="Main addedIngredients">
+     <br>
+     <h4>Your Ingredient</h4>
+     <div class="ingredients-box"></div>
+     <br>
+     <button onclick="" type="button"><h4>Generate Recipe</h4></button>
+   </div>
+
 
 </form>
 </div>
@@ -189,6 +200,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
+<!-- Scripts for adding ingredients onto the box -->
+<script>
+  function addingIngredients(){
+    var ing = document.forms["addForm"]["ing"].value;
+
+  }
+</script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
 </body>

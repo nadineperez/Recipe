@@ -1,9 +1,10 @@
+
+
 <style>
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-
 }
 .user {
    width: 90%;
@@ -22,7 +23,17 @@
    font-weight: 500;
    color: white;
 }
+/* Dividing the main content into 2 side */
 
+.Main{
+  float: left;
+}
+.ingredientInput{
+  width: 70%;
+}
+.addedInsgredients{
+  width: 30%;
+}
 /*autocomplete*/
 
 * { box-sizing: border-box; }
@@ -75,6 +86,13 @@ input[type=submit] {
    color: #ffffff;
 }
 /*autocomplete*/
+
+/*Adding ingredients into the box*/
+.ingredients-box{
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
 
 &:hover {
    background: darken($color-primary, 5%);
