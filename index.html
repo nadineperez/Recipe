@@ -52,29 +52,65 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
               <div class="autocomplete" style="width:300px;">
                  <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
               </div>
-              <input type="submit" value="Add Ingredient">
+
+              <input type="reset" value="Add Ingredient" onclick="addList()">
+              <div class="message" id="msg_error"></div>
+
+              <div class="Main addedIngredients">
+                <h4>Your Ingredient</h4>
+                <div class="ingredients-box">
+                  <div class="message" id="ingredientList"></div>
+                </div>
+                <br>
+              </div>
+              <input type="submit" value="Generate Recipe">
            </form>
         </div>
 
-        <div class="list">
-        </div>
 
-        <div class="form__group">
-           <button onclick="addIngredients()" type="button"><h4>Add More Ingredients</h4></button>
-        </div>
+
+        <!-- ADDING THE INPUT INGREDIENTS INTO AN ARRAY -->
+        <script>
+          var inArray=[];
+          function addList(){
+            //get value from the input text already
+            var inputIngr = document.getElementById("input").value;
+
+            if (inputIngr == ""){
+              document.getElementById("msg_error").innerHTML = "You have not added any ingredient yet!";
+        			return false;
+            }
+            else {
+        			document.getElementById("msg_error").innerHTML = "";
+        		}
+
+            //append data to the array
+            inArray.push("&nbsp; - " + inputIngr);
+
+            var inVal = "";
+
+            for (i=0; i<inArray.length; i++){
+              inVal = inVal + inArray[i] + "<br>";
+            }
+
+            //display array dataset
+            document.getElementById('ingredientList').innerHTML = inVal;
+
+
+
+          }
+        </script>
+
+
     </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <!-- AUTOCOMPLE -->
       <script>
       var ingredients = ["Sugar","Vanilla","Flour","Pumpkin","Apple","Banana"];
       var cloneCount = 1;
-
-      function addIngredients() {
-         $("#submission").clone().attr('id', 'submission'+ cloneCount).appendTo(".list");
-         $('#submission').find('#input').attr('id', 'input'+ cloneCount);
-         cloneCount++;
-      }
 
       function autocomplete(inp, arr) {
          /*the autocomplete function takes two arguments,
@@ -177,17 +213,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       // for (var x = 1; x < cloneCount; x++) {
       //    autocomplete(document.getElementsByTagName("INPUT")[x], ingredients);
       // }
+
+
       </script>
    <!--autocomplete-->
-
-   <!-- Adding ingredients into the box -->
-   <div class="Main addedIngredients">
-     <br>
-     <h4>Your Ingredient</h4>
-     <div class="ingredients-box"></div>
-     <br>
-     <button onclick="" type="button"><h4>Generate Recipe</h4></button>
-   </div>
 
 
 </form>
@@ -200,13 +229,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
-<!-- Scripts for adding ingredients onto the box -->
-<script>
-  function addingIngredients(){
-    var ing = document.forms["addForm"]["ing"].value;
 
-  }
-</script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
 </body>
