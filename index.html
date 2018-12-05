@@ -57,7 +57,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
               <div class="message" id="msg_error"></div>
 
               <div class="Main addedIngredients">
-                <h4>Your Ingredient</h4>
+                <h4>Your Ingredients</h4>
                 <div class="ingredients-box">
                   <div class="message" id="ingredientList"></div>
                 </div>
@@ -68,16 +68,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>
 
 
-
         <!-- ADDING THE INPUT INGREDIENTS INTO AN ARRAY -->
         <script>
-          var inArray=[];
+          var addedIngredients=[];
           function addList(){
             //get value from the input text already
             var inputIngr = document.getElementById("input").value;
-
             if (inputIngr == ""){
-              document.getElementById("msg_error").innerHTML = "You have not added any ingredient yet!";
+              document.getElementById("msg_error").innerHTML = "You have not added any ingredients yet!";
         			return false;
             }
             else {
@@ -85,19 +83,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         		}
 
             //append data to the array
-            inArray.push("&nbsp; - " + inputIngr);
-
+            addedIngredients.push("&nbsp; - " + inputIngr);
             var inVal = "";
-
-            for (i=0; i<inArray.length; i++){
-              inVal = inVal + inArray[i] + "<br>";
+            for (i=0; i< addedIngredients.length; i++){
+              inVal = inVal + addedIngredients[i] + "<br>";
             }
-
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
-
-
-
           }
         </script>
 
@@ -109,7 +101,25 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
       <!-- AUTOCOMPLE -->
       <script>
-      var ingredients = ["Sugar","Vanilla","Flour","Pumpkin","Apple","Banana"];
+      var ingredients = ["Yellow potatoes", "Carrot", "Onion", "Cashews", "Salt",
+      "Garlic powder", "Onion powder", "Nutritional yeast", "Macaroni pasta",
+      "Paprika", "Ground beef", "Green bell pepper", "Tomatoes", "Tomato sauce",
+      "Pepper", "Banana", "Mixed berries", "Cooked quinoa", "Almond milk",
+      "Peanut butter", "Fettuccine", "Kale", "Olive Oil", "White vinegar",
+      "Diced Tomatoes", "Vegetable Broth", "Cream Cheese", "Black Pepper",
+      "Garlic", "Roasted Red Peppers", "Dried Basil", "Cabbage", "Bean Sprouts",
+      "Celery", "Shrimp", "Egg", "Vegetable oil", "Cornstarch",
+      "Egg roll wrapper", "Russet potatoes", "Aquafaba", "Brussels sprouts",
+      "Mayonnaise", "Siracha", "Lemon Juice", "Green Onion", "Spinach",
+      "Red bell pepper", "Sour cream", "Cumin", "Sweet potato", "Cayenne",
+      "Curry powder", "Flour", "Asparagus", "Butter", "Lemon ", "Broccoli",
+      "Vegetable broth", "Chives", "Cashew sour cream", "Taco seasoning",
+      "Corn", "Black beans", "Cheese", "Tater tots", "Flour Tortilla",
+      "Pepperoni", "Pizza Sauce", "Mozzarella Cheese Sticks", "Vanilla extract",
+      "White rice", "Crabmeat", "Cucumber", "Lime", "Cilantro", "Sugar",
+      "Cocoa powder", "Baking powder", "Flour", "Honey", "Salmon", "Soy sauce",
+      "Cumin", "Oregano", "Cayenne Pepper", "Artichoke Hearts", "Chickpeas"];
+
       var cloneCount = 1;
 
       function autocomplete(inp, arr) {
