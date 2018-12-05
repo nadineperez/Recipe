@@ -6,6 +6,31 @@ html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <!-- jQuery library -->
+<?php
+// Create connection
+$conn = new mysqli('localhost', 'root', '', 'Recipe');
+
+// Check connection
+if ($conn->connect_error) {
+    echo hello
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT ingredient_name FROM ingredient";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "ingredient name: " . $row["ingredient_name"];
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
+
 <html>
 <head>
    <title>Find a recipe!</title>
@@ -48,7 +73,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       <div class="Main ingredientInput">
         <h1 style="color:black;">Find a recipe!</h1>
         <div id="submission">
-           <form autocomplete="off" action="/action_page.php">
+           <form autocomplete="off" action="php/generate.php" method = "get">
+
               <div class="autocomplete" style="width:300px;">
                  <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
               </div>
@@ -63,6 +89,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </div>
                 <br>
               </div>
+              <input type="hidden" id="recipe" name="recipe" value="Vegan Mac and cheese">
               <input type="submit" value="Generate Recipe">
            </form>
         </div>
@@ -71,11 +98,16 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <!-- ADDING THE INPUT INGREDIENTS INTO AN ARRAY -->
         <script>
           var addedIngredients=[];
+          var addedIngredientsRaw=[];
           function addList(){
             //get value from the input text already
             var inputIngr = document.getElementById("input").value;
             if (inputIngr == ""){
-              document.getElementById("msg_error").innerHTML = "You have not added any ingredients yet!";
+               document.getElementById("msg_error").innerHTML = "You have not added any ingredients yet!";
+        			return false;
+            }
+            else if (addedIngredientsRaw.includes(inputIngr)) {
+               document.getElementById("msg_error").innerHTML = "You already added this ingredient!";
         			return false;
             }
             else {
@@ -84,6 +116,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             //append data to the array
             addedIngredients.push("&nbsp; - " + inputIngr);
+            addedIngredientsRaw.push(inputIngr);
             var inVal = "";
             for (i=0; i< addedIngredients.length; i++){
               inVal = inVal + addedIngredients[i] + "<br>";
