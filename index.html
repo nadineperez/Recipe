@@ -6,31 +6,6 @@ html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <!-- jQuery library -->
-<?php
-// Create connection
-$conn = new mysqli('localhost', 'root', '', 'Recipe');
-
-// Check connection
-if ($conn->connect_error) {
-    echo hello
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT ingredient_name FROM ingredient";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "ingredient name: " . $row["ingredient_name"];
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
-
-
 <html>
 <head>
    <title>Find a recipe!</title>
@@ -73,7 +48,7 @@ $conn->close();
       <div class="Main ingredientInput">
         <h1 style="color:black;">Find a recipe!</h1>
         <div id="submission">
-           <form autocomplete="off" action="php/generate.php" method = "get">
+           <form autocomplete="off" action="result.html" method = "get">
 
               <div class="autocomplete" style="width:300px;">
                  <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
@@ -89,7 +64,7 @@ $conn->close();
                 </div>
                 <br>
               </div>
-              <input type="hidden" id="recipe" name="recipe" value="Vegan Mac and cheese">
+              <input type="hidden" id="recipe" name="recipe" value=5>
               <input type="submit" value="Generate Recipe">
            </form>
         </div>
@@ -115,7 +90,7 @@ $conn->close();
         		}
 
             //append data to the array
-            addedIngredients.push("&nbsp; - " + inputIngr);
+            addedIngredients.push("&nbsp;" + inputIngr);
             addedIngredientsRaw.push(inputIngr);
             var inVal = "";
             for (i=0; i< addedIngredients.length; i++){
@@ -150,8 +125,25 @@ $conn->close();
       "Corn", "Black beans", "Cheese", "Tater tots", "Flour Tortilla",
       "Pepperoni", "Pizza Sauce", "Mozzarella Cheese Sticks", "Vanilla extract",
       "White rice", "Crabmeat", "Cucumber", "Lime", "Cilantro", "Sugar",
-      "Cocoa powder", "Baking powder", "Flour", "Honey", "Salmon", "Soy sauce",
+      "Cocoa powder", "Baking powder", "Chocolate", "Honey", "Salmon", "Soy sauce",
       "Cumin", "Oregano", "Cayenne Pepper", "Artichoke Hearts", "Chickpeas"];
+
+      var recipe_id = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3,
+         3, 19, 19, 19, 19, 19, 19, 19, 19, 19, 4, 4, 4, 4, 4, 20, 20, 20, 20,
+         20, 20, 20, 5, 5, 5, 5, 5, 21, 21, 21, 21, 21, 21, 21, 6, 6, 6, 6, 6,
+         6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9,
+         9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 22, 22, 22, 22, 22,
+         11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 13, 13, 13, 13, 13, 13, 13, 13,
+         13, 12, 12, 12, 12, 12, 12, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
+         23, 23, 23, 23];
+      var ingredient_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 17, 18, 19, 20,
+         22, 23, 24, 5, 8, 26, 21, 29, 30, 25, 31, 28, 27, 3, 40, 41, 42, 5, 23,
+         36, 43, 44, 5, 45, 46, 28, 51, 52, 53, 54, 23, 9, 55, 5, 56, 29, 28,
+         57, 58, 59, 60, 61, 5, 15, 3, 29, 23, 11, 12, 13, 14, 15, 3, 5, 32, 33,
+         34, 35, 36, 37, 38, 39, 3, 6, 15, 47, 48, 49, 50, 3, 5, 29, 43, 11, 3,
+         29, 62, 63, 64, 65, 66, 67, 68, 69, 70, 37, 72, 73, 74, 75, 76, 77, 5,
+         36, 3, 37, 71, 77, 78, 79, 80, 81, 36, 5, 56, 23, 29, 81, 82, 83, 30,
+         23, 29, 10, 84, 85, 86, 28, 3, 72, 25, 87, 88, 26, 5, 57]
 
       var cloneCount = 1;
 
