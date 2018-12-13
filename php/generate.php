@@ -1,6 +1,6 @@
 <?php
 
-$namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_name = ". $_GET['tid'];
+$namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_id = ". $_GET['ing'];
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 
@@ -17,7 +17,7 @@ $result = $conn->query($namequery);
 //         echo "ingredient name: " . $row["ingredient_name"];
 //     }
 
-    echo $result;
+    echo $namequery;
 
 $conn->close();
 ?>
