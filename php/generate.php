@@ -11,13 +11,13 @@ $result = $conn->query($namequery);
 //$sql = "SELECT ingredient_name FROM ingredient";
 // $result = $conn->query($namequery);
 //
-// if ($result->num_rows > 0) {
-//     // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//         echo "ingredient name: " . $row["ingredient_name"];
-//     }
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "ingredient name: " . $row["ingredient_name"];
+    }
 
-    echo $namequery;
+   // echo $namequery;
 
 $conn->close();
 ?>
