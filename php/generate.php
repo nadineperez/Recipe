@@ -17,7 +17,7 @@ $result = $conn->query($namequery);
 //         echo "ingredient name: " . $row["ingredient_name"];
 //     }
 
-    echo $result = $conn->query($namequery);;
+    echo $result;
 
 $conn->close();
 ?>
