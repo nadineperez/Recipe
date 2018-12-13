@@ -1,6 +1,6 @@
 <?php
 // Create connection
-$conn = new mysqli('ec2-18-232-114-144.compute-1.amazonaws.com', 'root', 'inst377', 'Recipedatabase');
+$conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 $sql = "SELECT ingredient_name FROM ingredient";
 
 // Check connection
