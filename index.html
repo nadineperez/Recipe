@@ -70,13 +70,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <br>
               </div>
 
-            <?php
-               // Set session variables
-               $_SESSION["favcolor"] = "green";
-               $_SESSION["favanimal"] = "cat";
-               echo "Session variables are set.";
-            ?>
-
               <input type="hidden" id="ing" name="ing" value=5>
               <input type="submit" value="Generate Recipe">
            </form>
@@ -111,6 +104,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             }
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
+
+            <?php
+               // Set session variables
+               $_SESSION["favcolor"] = "green";
+               $_SESSION["favanimal"] = "cat";
+               echo "Session variables are set.";
+            ?>
+            
           }
         </script>
 
