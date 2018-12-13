@@ -11,11 +11,13 @@ $result = $conn->query($namequery);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "ingredient name: " . $row["ingredient_name"];
+        echo "ingredient name: " . $row["ingredient_name"] . ".<br>";
     }
 }
-echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
-echo "Favorite animal is " . $_SESSION["favanimal"] . ".";
+
+for ($x = 0; $x <= 2; $x++) {
+    echo "Ingredient is " . $_SESSION["ing" . $x] . ".<br>";
+}
 
 $conn->close();
 ?>

@@ -1,7 +1,6 @@
 <?php
    // Start the session
    session_start();
-
    $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 ?>
 <!DOCTYPE HTML>
@@ -105,13 +104,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
 
-            <?php
-               // Set session variables
-               $_SESSION["favcolor"] = "green";
-               $_SESSION["favanimal"] = "cat";
-               echo "Session variables are set.";
-            ?>
-            
+            for (i=0; i < addedIngredientsRaw.length; i++) {
+               <?php
+                  // Set session variables
+                  $_SESSION["ing" . i] = addedIngredientsRaw[i];
+               ?>
+            }
+
           }
         </script>
 
