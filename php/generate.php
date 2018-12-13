@@ -14,7 +14,6 @@ if ($result->num_rows > 0) {
         echo "ingredient name: " . $row["ingredient_name"];
     }
 }
-   // echo $namequery;
 
 $conn->close();
 ?>

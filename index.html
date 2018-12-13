@@ -1,4 +1,9 @@
+<?php
+   // Start the session
+   session_start();
 
+   $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
+?>
 <!DOCTYPE HTML>
 <!--
 Editorial by HTML5 UP
@@ -64,6 +69,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </div>
                 <br>
               </div>
+
+            <?php
+               // Set session variables
+               $_SESSION["favcolor"] = "green";
+               $_SESSION["favanimal"] = "cat";
+               echo "Session variables are set.";
+            ?>
+
               <input type="hidden" id="ing" name="ing" value=5>
               <input type="submit" value="Generate Recipe">
            </form>
