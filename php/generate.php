@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_id = ". $_GET['ing'];
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
@@ -14,6 +14,8 @@ if ($result->num_rows > 0) {
         echo "ingredient name: " . $row["ingredient_name"];
     }
 }
+echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
+echo "Favorite animal is " . $_SESSION["favanimal"] . ".";
 
 $conn->close();
 ?>
