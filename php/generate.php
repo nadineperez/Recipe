@@ -51,8 +51,8 @@ if ($step->num_rows > 0) {
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
-        echo gettype($recipe_name);
-
+        echo gettype($uniquerecipes);
+        echo "list is " . gettype($list)
 
         if (in_array($ingredient, $list) == FALSE) {
            unset($uniquerecipes[$recipe_name]);
