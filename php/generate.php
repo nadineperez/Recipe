@@ -40,6 +40,7 @@ foreach ($all_recipe as $rec) {
 
 if ($step->num_rows > 0) {
 
+      echo "hello";
     // output data of each row
     while($row = $step->fetch_assoc()) {
       $ingredient = $row["ingredient_name"];
