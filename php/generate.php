@@ -149,14 +149,14 @@ $conn->close();
            <div class="result">
 
              <div class="left_matching">
-               <h4 class="txt1">Recipes you can make right now!</h4>
+               <h4 class="txt1">Recipes you can make right <?=$available_ingredients[0]?> now!</h4>
 
 					<div id="matched">
 
 						<div class="row">
 
 						  <div class="column">
-							  <h6 id="matching_title"><?=$available_ingredients[0]?></h6>
+							  <h6 id="matching_title"></h6>
 						  </div>
 
 						  <div class="column">
