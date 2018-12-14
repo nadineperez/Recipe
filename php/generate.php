@@ -26,11 +26,12 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 // Check connection
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
+$step1 = $conn->query($ings);
+$finaltable = $conn->query($joined);
 $recipes = $conn->query($recipes);
 $matches = array($recipes);
 
-
-// if ($ingredientId->num_rows > 0) {
+// if ($recipes->num_rows > 0) {
 //     // output data of each row
 //     while($row = $associated_recipes->fetch_assoc()) {
 //         echo "recipe id: " . $row["recipe_id"] . ".<br>";
