@@ -54,9 +54,11 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
    }
 }
 
+print_r($recipes_to_suggest) . "<br />";
+
+
 while($row = $valid_recipe->fetch_assoc()) {
   $id = $row["recipe_id"];
-  //$recipe_name = $row["recipe_name"];
   $name = $row["recipe_name"];
   if (array_key_exists($id, $recipes_to_suggest) == TRUE) {
     array_push($recipe_names, $name);
