@@ -76,7 +76,7 @@ while($row = $valid_recipe->fetch_assoc()) {
 
 
 //echo "Recipes to suggest: ";
-//print_r($recipe_names) . "<br />";
+print_r($recipe_links) . "<br />";
 
 $conn->close();
 ?>
@@ -173,7 +173,7 @@ $conn->close();
 						  </div>
 
 						  <div class="column">
-							  <a href= "<?=$recipe_links[0]?>">Recipe</a>
+							  <a href= '<?= $recipe_links[0] ?>'>Recipe</a>
 						  </div>
 
 						</div>
