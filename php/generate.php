@@ -1,7 +1,7 @@
 <?php
 session_start();
 $namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_id = ". $_GET['ing'];
-$list = $_POST['ingredientList'];
+$list = $_GET['ingredientList'];
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 
