@@ -28,6 +28,7 @@ $valid_recipe = $conn->query($valid_recipes);
 $available_ingredients = array();
 $required_ingredients = array();
 $recipes_to_suggest = array();
+$recipe_names = array();
 
 foreach ($all_recipe as $rec) {
    $index = $rec["recipe_id"];
@@ -52,8 +53,18 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
       array_push($recipes_to_suggest, $x);
    }
 }
+
+while($row = $valid_recipe->fetch_assoc()) {
+  $id = $row["recipe_id"];
+  //$recipe_name = $row["recipe_name"];
+  $name = $row["recipe_name"];
+  if (array_key_exists($id, $recipes_to_suggest) == TRUE) {
+    array_push($recipe_names, $name);
+}
+}
+
 echo "Recipes to suggest: ";
-print_r($recipes_to_suggest) . "<br />";
+print_r($recipe_names) . "<br />";
 
 $conn->close();
 ?>
