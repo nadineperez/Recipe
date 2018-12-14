@@ -24,11 +24,7 @@ $step = $conn->query($filtered_ingredients);
 $all_recipe = $conn->query($all_recipe_ids);
 $valid_recipe = $conn->query($valid_recipes);
 
-// $recipearray = Array();
-// while($result = $to_display->fetch_assoc()){
-//    $recipearray[] = $result["recipe_name"];
-// }
-// $uniquerecipes = array_unique($recipearray);
+
 $available_ingredients = array();
 $required_ingredients = array();
 $recipes_to_suggest = array();
@@ -36,7 +32,6 @@ $recipes_to_suggest = array();
 foreach ($all_recipe as $rec) {
    $index = $rec["recipe_id"];
    $required_ingredients[$index]++;
-   //echo $rec["recipe_id"] . "<br>";
 }
 
 if ($step->num_rows > 0) {
@@ -51,8 +46,6 @@ if ($step->num_rows > 0) {
       $available_ingredients[$recipe_id]++;
     }
 }
-//print_r($required_ingredients) . "<br />";
-print_r($available_ingredients) . "<br />";
 
 for ($x = 0; $x <= count($required_ingredients); $x++) {
    if ($required_ingredients[$x] == $available_ingredients[$x]) {
@@ -163,7 +156,7 @@ $conn->close();
 						<div class="row">
 
 						  <div class="column">
-							  <h6 id="matching_title"></h6>
+							  <h6 id="matching_title"><?=$available_ingredients[0]?></h6>
 						  </div>
 
 						  <div class="column">
@@ -188,8 +181,6 @@ $conn->close();
 					var x = document.getElementById("matching_favorited");
 					x.style.display = "none";
 				 }
-
-
 
 	        </script>
 
