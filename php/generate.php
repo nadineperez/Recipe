@@ -42,23 +42,22 @@ $required_ingredients = array();
 foreach ($all_recipe as $rec) {
    $index = $rec["recipe_id"];
    $required_ingredients[$index]++;
-   echo $rec["recipe_id"] . "<br>";
+   //echo $rec["recipe_id"] . "<br>";
 }
-
-print_r($required_ingredients);
 
 if ($step->num_rows > 0) {
 
     // output data of each row
     while($row = $step->fetch_assoc()) {
 
-      echo "ingredient id: " . $row["ingredient_id"] . " recipe id: " . $row["recipe_id"] . "<br />";
+      //echo "ingredient id: " . $row["ingredient_id"] . " recipe id: " . $row["recipe_id"] . "<br />";
 
       $ingredient = $row["ingredient_name"];
       //$recipe_name = $row["recipe_name"];
       $ingredient_id = $row["ingredient_id"];
       $recipe_id = $row["recipe_id"];
 
+      $required_ingredients[$recipe_id]++;
       // foreach ($all_recipe as $rec) {
       //    echo $rec["recipe_id"] . "<br>";
       // }
@@ -75,5 +74,8 @@ if ($step->num_rows > 0) {
         // }
     }
 }
+print_r($required_ingredients) . "<br>";
+print_r($available_ingredients) . "<br>";
+
 $conn->close();
 ?>
