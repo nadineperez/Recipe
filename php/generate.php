@@ -40,7 +40,6 @@ while($result = $to_display->fetch_assoc()){
    $recipearray[] = $result["recipe_name"];
 }
 $uniquerecipes = array_unique($recipearray);
-print_r($uniquerecipes);
 
 if ($step->num_rows > 0) {
     // output data of each row
@@ -54,13 +53,11 @@ if ($step->num_rows > 0) {
 
 
         if (in_array($ingredient, $list) == FALSE) {
-           unset($recipearray[$recipe_name]);
-        }
-        else {
-          // echo $recipe_name;
+           unset($uniquerecipes[$recipe_name]);
         }
     }
 }
+print_r($uniquerecipes)
 
 // $finaltable = $conn->query($joined);
 // $recipes = $conn->query($recipes);
