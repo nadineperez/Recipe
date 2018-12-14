@@ -44,9 +44,7 @@ if ($step->num_rows > 0) {
         $recipe_name = $row["recipe_name"];
 
         if (in_array($ingredient, $list) == FALSE) {
-           if (($key = array_search($recipe_name, $valid)) !== false) {
-                unset($valid[$key]);
-            }
+           $valid.remove($recipe_name);
         }
     }
 }
