@@ -64,8 +64,140 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
 
 $conn->close();
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-   <link rel="stylesheet" type="text/css" href="css/main_style.css">
+	<title>Recipe Generator</title>
+  <link rel="stylesheet" type="text/css" href="css/main_style.css">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" href="assets/css/ie9.css" />
+  <![endif]-->
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="assets/css/ie8.css" />
+  <![endif]-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style>
+    .txt1{
+      text-align: center;
+    }
+    .txt2{
+      margin-left: 30px;
+    }
+    #Banner{
+      margin: center;
+    }
+    #test{
+      background: red;
+
+    }
+    /* .result{
+      width: 600px;
+      margin: center;
+      background: red;
+    } */
+
+
+	 .column {
+     float: left;
+	 }
+
+	 .left {
+		 width: 50%;
+	 }
+
+	 .middle {
+		 width: 5%;
+	 }
+
+	 .right {
+		 width: 45%;
+	 }
+
+    #matched{
+      width: 550px;
+      height: 300px;
+      border: 1px solid black;
+      padding: 20px;
+      margin-left: 70px;
+      overflow: auto;
+    }
+
+
+
+	</style>
 </head>
+<body style="background-color: rgb(255, 255, 255)">
+   <!-- Wrapper -->
+   <div id="wrapper">
+      <!-- Main -->
+   <div id="main">
+   <p>&ensp;</p>
+   <a href=result.html>
+      <img src = "http://thymeinthekitchenevv.com/wp-content/uploads/fall-food-cooking-class-evansville-in.jpg" class="center" id="logo"></a>
+      <div class="inner">
+      <!-- Header -->
+      <header id="header">
+      <!-- Banner -->
+      <div id="Banner">
+      <!-- <section id="banner" style="padding: 2em 0 0em 0 ;"> -->
+         <div class="test">
+
+           <!-- Recipes that match with user's ingredients -->
+           <div class="result">
+
+             <div class="left_matching">
+               <h4 class="txt1">Recipes you can make right now!</h4>
+
+					<div id="matched">
+
+						<div class="row">
+
+						  <div class="column">
+							  <h6 id="matching_title"></h6>
+						  </div>
+
+						  <div class="column">
+							  <a href="url" id="matching_link"></a>
+						  </div>
+
+						</div>
+
+               </div>
+             </div>
+
+             </div>
+           </div>
+
+			  <script>
+
+	          document.getElementById('matching_title').innerHTML = names[4] + " (preperation time " + cook_times[4] + " minutes)";
+				 document.getElementById('matching_link').innerHTML = "blah"
+
+				 document.getElementById('matching_link').href = links[4]
+				 if (favorited[4] == 0) {
+					var x = document.getElementById("matching_favorited");
+					x.style.display = "none";
+				 }
+
+
+
+	        </script>
+
+       </div>
+     </div>
+    </div>
+    </div>
+  </div>
+
+</body>
 </html>

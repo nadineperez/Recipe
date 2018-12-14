@@ -39,16 +39,7 @@
       margin: center;
       background: red;
     } */
-    .right_close{
-      /* width: 300px;
-      height: 300px; */
-      float: right;
-    }
-    .left_matching{
-      /* width: 300px;
-      height: 300px; */
-      float: left;
-    }
+
 
 	 .column {
      float: left;
@@ -74,14 +65,7 @@
       margin-left: 70px;
       overflow: auto;
     }
-    #closed{
-      width: 550px;
-      height: 300px;
-      border: 1px solid black;
-      padding: 20px;
-      margin-right: 70px;
-      overflow: auto;
-    }
+
 
 
 	</style>
@@ -117,105 +101,29 @@
 						  </div>
 
 						  <div class="column">
-							  <a href="url" id="matching_link">Recipe</a>
-						  </div>
-
-						  <div class="column">
-							  <p id="matching_favorited">❤️</p>
-						  </div>
-
-						  <div class="column">
-							  <h6 id="matching_title3"></h6>
-						  </div>
-
-						  <div class="column">
-							  <a href="url" id="matching_link3">Recipe</a>
-						  </div>
-
-						  <div class="column">
-							  <p id="matching_favorited3">❤️</p>
+							  <a href="url" id="matching_link"></a>
 						  </div>
 
 						</div>
 
                </div>
              </div>
-
-             <div class="right_close">
-               <h4 class="txt2">Recipes that are pretty close!</h4>
-               <div  id="closed">
-						<div class="row">
-
-						  <div class="column">
-							  <h6 id="close_title"></h6>
-							  <h6 id="close_missing"></h6>
-						  </div>
-
-						  <div class="column">
-							  <a href="url" id="close_link">Recipe</a>
-						  </div>
-
-						  <div class="column">
-							  <p id="close_favorited">❤️</p>
-						  </div>
-
-						</div>
-               </div>
-
-
 
              </div>
            </div>
 
 			  <script>
-	          var names=
-				 ["Gotta Have it Vegan Mac n' Cheese",
-				 "Peanut Butter and Berry Quinoa Smoothie",
-				 "Chocolate chip cookies",
-				 "Best Brownies",
-				 "Mini Chocolate Pancakes"];
-				 var cook_times=
-				 [20,
-					5,
-					30,
-					45,
-					10];
-				 var links=
-				 ["https://www.buzzfeed.com/jordankenna/gotta-have-it-vegan-mac-n-cheese",
-				 "http://www.exsloth.com/pb-berry-quinoa-smoothie/",
-				 "https://www.wholesomeyum.com/recipes/salt-vinegar-kale-chips/",
-				 "https://www.allrecipes.com/recipe/10549/best-brownies/",
-				 "https://www.allrecipes.com/recipe/231855/mini-chocolate-chip-pancakes/"];
-
-				 var favorited=
-				 [0,
-					1,
-					0,
-					1,
-					0];
 
 	          document.getElementById('matching_title').innerHTML = names[4] + " (preperation time " + cook_times[4] + " minutes)";
+				 document.getElementById('matching_link').innerHTML = "blah"
+
 				 document.getElementById('matching_link').href = links[4]
 				 if (favorited[4] == 0) {
 					var x = document.getElementById("matching_favorited");
 					x.style.display = "none";
 				 }
 
-				 document.getElementById('matching_title3').innerHTML = names[3] + " (preperation time " + cook_times[3] + " minutes)";
-				 document.getElementById('matching_link3').href = links[3]
-				 if (favorited[3] == 0) {
-					var x = document.getElementById("matching_favorited3");
-					x.style.display = "none";
-				 }
 
-				 document.getElementById('close_title').innerHTML = names[2] + " (preperation time " + cook_times[2] + " minutes)";
-				 document.getElementById('close_missing').innerHTML = "missing ingredients: eggs, vanilla extract";
-
-				 document.getElementById('close_link').href = links[2]
-				 if (favorited[2] == 0) {
-					var x = document.getElementById("close_favorited");
-					x.style.display = "none";
-				 }
 
 	        </script>
 
