@@ -9,6 +9,7 @@
 // Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 // -->
 // <!-- jQuery library -->
+?>
 <html>
 <head>
    <title>Find a recipe!</title>
@@ -277,4 +278,5 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-?>
+<!-- <?php
+?> -->
