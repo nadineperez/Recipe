@@ -54,9 +54,7 @@ if ($step->num_rows > 0) {
 
         if (in_array($ingredient, $list) == FALSE) {
            unset($uniquerecipes[$recipe_name]);
-        } else {
            echo $recipe_name;
-
         }
     }
 }
