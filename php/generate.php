@@ -39,13 +39,13 @@ while($result = $to_display->fetch_assoc()){
 $uniquerecipes = array_unique($recipearray);
 
 if ($step->num_rows > 0) {
-   echo 1;
+
     // output data of each row
     while($row = $step->fetch_assoc()) {
 
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
-
+        echo $ingredient;
         // if (in_array($ingredient, $list) == FALSE) {
         //    //unset($uniquerecipes[$recipe_name]);
         //    //$uniquerecipes= array_flip($uniquerecipes)
