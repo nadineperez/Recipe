@@ -53,7 +53,7 @@
                      $_SESSION["favcolor"] = "myIngredient";
                      $_SESSION["favanimal"] = myIngredient;
                      echo "Session variables are set.";
-                     $list = $_GET['ingredientList'];
+                     $list = $_GET['myIngredient'];
                      echo $list;
                   ?>
               </div>
