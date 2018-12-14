@@ -60,7 +60,7 @@ print_r($recipes_to_suggest) . "<br />";
 while($row = $valid_recipe->fetch_assoc()) {
   $id = $row["recipe_id"];
   $name = $row["recipe_name"];
-  if (array_key_exists($id, $recipes_to_suggest) == TRUE) {
+  if ($recipes_to_suggest[$id] > 0) {
     array_push($recipe_names, $name);
 }
 }
