@@ -16,9 +16,9 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 foreach ($list as $ingredient) {
     echo "Ingredient is " . $ingredient . ".<br>";
 
-    $ingid = "SELECT ingredient_id FROM recipe_ingredient WHERE ingredient_name = $ingredient;
+    $ingid = "SELECT ingredient_id FROM recipe_ingredient WHERE ingredient_name = $ingredient";
 
-    $associated_recipes = "SELECT * FROM recipe_ingredient WHERE ingredient_id = $ingid;
+    $associated_recipes = "SELECT * FROM recipe_ingredient WHERE ingredient_id = $ingid";
     if ($associated_recipes->num_rows > 0) {
         // output data of each row
         while($row = $associated_recipes->fetch_assoc()) {
