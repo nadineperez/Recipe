@@ -22,13 +22,7 @@ $condition = implode(', ', $list);
 //
 // }
 
-$table = "SELECT r.id
-FROM Recipes AS r
-LEFT JOIN recipe_ingredients AS ri ON r.id = ri.recipe_id
-LEFT JOIN ingredients AS i ON i.id = ri.ingredient_id
-WHERE i.id IN ($condition);
--- GROUP BY r.id
--- HAVING COUNT(i.id) = 0";
+$table = "SELECT * FROM Recipes";
 
 //session_unset();
 // Create connection
@@ -40,7 +34,7 @@ $step = $conn->query($table);
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $table->fetch_assoc()) {
-        echo "ing id: " . $row["ingredient_id"] . ".<br>";
+        echo "ing id: " . $row["recipe_id"] . ".<br>";
     }
 }
 
