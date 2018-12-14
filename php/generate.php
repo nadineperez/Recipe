@@ -7,7 +7,7 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
 
-$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient_id";
+$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient.ingredient_id= recipe_ingredient.ingredient_id";
 $joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
 $recipes = "SELECT recipe_name FROM $joined WHERE ingredient IN ($condition)";
 
