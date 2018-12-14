@@ -5,9 +5,14 @@ session_start();
 // $ingredientId = "SELECT * FROM recipe_ingredient WHERE ingredient_id = ". $_GET['ing'];
 
 $list = $_SESSION["ingredientList"];
+
+foreach ($list as $key => $val) {
+   echo $val;
+}
+
 $condition = implode(', ', $list);
 
-echo "list" . $list;
+echo "list" . $list[0];
 echo "condition". $condition;
 
 $ings = "SELECT * FROM Recipe
@@ -39,7 +44,7 @@ $step = $conn->query($ings);
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
-      echo $row["ingredient_name"];
+      //echo $row["ingredient_name"];
         if (array_key_exists($row["ingredient_name"], $list)) {
            echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
         }
