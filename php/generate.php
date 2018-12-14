@@ -6,17 +6,17 @@ session_start();
 
 $list = $_SESSION["ingredientList"];
 
-// foreach($list as $key => $value) {
-//    $strlist .'. $value  .',;
-// }
 // substr_replace($strlist ,"", -1);
 // echo ($strlist);
 
-$valid = "SELECT recipe_name FROM Recipe";
+//$valid_recipes = "SELECT recipe_name FROM Recipe";
 
-$table = "SELECT * FROM Recipe
-LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
-LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
+$filtered_ingredients = "SELECT * FROM recipe_ingredient
+LEFT JOIN ingredient
+ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
+WHERE ingredient_name=". $list[0];
+
+//LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
 
 //session_unset();
@@ -25,14 +25,13 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 // Check connection
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
-$step = $conn->query($table);
-$to_display = $conn->query($valid);
+$step = $conn->query($filtered_ingredients);
 
-$recipearray = Array();
-while($result = $to_display->fetch_assoc()){
-   $recipearray[] = $result["recipe_name"];
-}
-$uniquerecipes = array_unique($recipearray);
+// $recipearray = Array();
+// while($result = $to_display->fetch_assoc()){
+//    $recipearray[] = $result["recipe_name"];
+// }
+// $uniquerecipes = array_unique($recipearray);
 
 if ($step->num_rows > 0) {
 
@@ -41,8 +40,7 @@ if ($step->num_rows > 0) {
 
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
-
-        echo $ingredient['ingredient_name'];
+       echo $recipe_name[0];
 
         // if (in_array($ingredient, $list) == FALSE) {
         //    //unset($uniquerecipes[$recipe_name]);
