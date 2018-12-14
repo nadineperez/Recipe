@@ -14,6 +14,10 @@ $table = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
 LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
+foreach($list as $key => $value) {
+  echo "$key -> $value";
+}
+
 //session_unset();
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
