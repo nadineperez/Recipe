@@ -60,9 +60,14 @@ print_r($recipes_to_suggest) . "<br />";
 while($row = $valid_recipe->fetch_assoc()) {
   $id = $row["recipe_id"];
   $name = $row["recipe_name"];
-  if ($recipes_to_suggest[$id] > 0) {
-    array_push($recipe_names, $name);
-}
+
+  for ($x = 0; $x <= count($recipes_to_suggest); $x++) {
+
+     if ($recipes_to_suggest == $id) {
+     array_push($recipe_names, $name);
+  }
+ }
+
 }
 
 echo "Recipes to suggest: ";
