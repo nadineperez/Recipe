@@ -6,6 +6,8 @@ session_start();
 
 $list = $_SESSION["ingredientList"];
 
+echo (gettype($list));
+
 $valid = "SELECT recipe_name FROM Recipe";
 
 $table = "SELECT * FROM Recipe
@@ -34,14 +36,14 @@ if ($step->num_rows > 0) {
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
-        if (in_array($ingredient, $list) == FALSE) {
-           //unset($uniquerecipes[$recipe_name]);
-           //$uniquerecipes= array_flip($uniquerecipes)
-           if (($key = array_search($recipe_name, $uniquerecipes)) !== false) {
-             echo "key " + $key
-            unset($uniquerecipes[$key]);
-            }
-        }
+        // if (in_array($ingredient, $list) == FALSE) {
+        //    //unset($uniquerecipes[$recipe_name]);
+        //    //$uniquerecipes= array_flip($uniquerecipes)
+        //    if (($key = array_search($recipe_name, $uniquerecipes)) !== false) {
+        //      echo "key " + $key
+        //     unset($uniquerecipes[$key]);
+        //     }
+        // }
     }
 }
 $conn->close();
