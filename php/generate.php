@@ -6,7 +6,11 @@ session_start();
 
 $list = $_SESSION["ingredientList"];
 
-echo (gettype($list));
+foreach($list as $key => $value) {
+   $strlist .'. $value  .',;
+}
+substr_replace($strlist ,"", -1);
+echo ($strlist);
 
 $valid = "SELECT recipe_name FROM Recipe";
 
@@ -15,6 +19,8 @@ LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
 LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
 foreach($list as $key => $value) {
+   $table = "SELECT * FROM $table WHERE ingredient_name"
+
   echo "$key -> $value";
 }
 
