@@ -33,7 +33,8 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
 $step = $conn->query($table);
-$to_display = $valid.
+$to_display = $conn->query($valid);
+
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
@@ -44,9 +45,17 @@ if ($step->num_rows > 0) {
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
-        if (in_array($ingredient, $list) == FALSE) {
-           unset($valid['recipe_name'][$recipe_name]);
-        }
+        $array = Array();
+         while($result = $to_display->fetch_assoc()){
+             $array[] = $result['recipe_name'];
+         }
+
+         print_r($array);
+
+
+        // if (in_array($ingredient, $list) == FALSE) {
+        //    unset($valid['recipe_name'][$recipe_name]);
+        // }
     }
 }
 
