@@ -42,8 +42,7 @@ if ($step->num_rows > 0) {
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
-        echo "ingr" + $ingredient;
-        echo "rec" + $recipe_name;
+        echo "ingr" + $ingredient + "rec" + $recipe_name;
 
         // if (in_array($ingredient, $list) == FALSE) {
         //    //unset($uniquerecipes[$recipe_name]);
