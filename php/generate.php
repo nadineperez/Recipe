@@ -7,7 +7,7 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient_id";
 $joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
-$recipes = "SELECT * FROM $joined WHERE ingredient IN ($list)"
+$recipes = "SELECT * FROM $joined WHERE ingredient IN ($list)";
 
 //recipes = "SELECT * FROM $joined WHERE ingredient IN ($list)";
 // foreach ($list as $ingredient) {
