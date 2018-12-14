@@ -39,7 +39,7 @@ $step = $conn->query($ings);
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
-        if (in_array($row["ingredient_name"], $condition)) {
+        if (array_key_exists($row["ingredient_name"], $list)) {
            echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
         }
     }
