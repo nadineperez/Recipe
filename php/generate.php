@@ -53,8 +53,11 @@ if ($step->num_rows > 0) {
 
 
         if (in_array($ingredient, $list) == FALSE) {
-           echo $recipe_name;
+
            unset($recipearray[$recipe_name]);
+        }
+        else {
+           echo $recipe_name;
         }
     }
 }
