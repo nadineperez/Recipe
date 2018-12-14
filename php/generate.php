@@ -18,11 +18,7 @@ $table = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
 LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
-foreach($list as $key => $value) {
-   $table = "SELECT * FROM $table WHERE ingredient_name = $value";
 
-   //echo "$key -> $value";
-}
 //session_unset();
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
@@ -45,7 +41,10 @@ if ($step->num_rows > 0) {
 
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
-        echo $ingredient;
+
+        echo "ingr" + $ingredient;
+        echo "rec" + $recipe_name;
+
         // if (in_array($ingredient, $list) == FALSE) {
         //    //unset($uniquerecipes[$recipe_name]);
         //    //$uniquerecipes= array_flip($uniquerecipes)
