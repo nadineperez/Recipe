@@ -37,7 +37,7 @@ if ($step->num_rows > 0) {
 
     // output data of each row
     while($row = $step->fetch_assoc()) {
-      echo "id: " . $row["ingredient_name"]
+      echo "id: " . $row["ingredient_name"];
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
