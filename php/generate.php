@@ -31,12 +31,12 @@ $finaltable = $conn->query($joined);
 $recipes = $conn->query($recipes);
 $matches = array($recipes);
 
-// if ($recipes->num_rows > 0) {
-//     // output data of each row
-//     while($row = $associated_recipes->fetch_assoc()) {
-//         echo "recipe id: " . $row["recipe_id"] . ".<br>";
-//     }
-// }
+if ($recipes->num_rows > 0) {
+    // output data of each row
+    while($row = $recipes->fetch_assoc()) {
+        echo "recipe id: " . $row["recipe_id"] . ".<br>";
+    }
+}
 
 
 
