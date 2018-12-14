@@ -39,10 +39,8 @@ $recipearray = Array();
 while($result = $to_display->fetch_assoc()){
    $recipearray[] = $result["recipe_name"];
 }
-$uniquerecipes = array_unique($array);
-echo $uniquerecipes;
-echo "??????????????????????????"
-echo $recipearray;
+$uniquerecipes = array_unique($recipearray);
+print_r($uniquerecipes);
 
 if ($step->num_rows > 0) {
     // output data of each row
