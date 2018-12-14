@@ -1,7 +1,7 @@
 <?php
 session_start();
 $namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_id = ". $_GET['ing'];
-$list = $_SESSION["favanimal"]
+$list = $_SESSION["favanimal"];
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 
