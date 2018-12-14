@@ -36,7 +36,9 @@ $all_recipe = $conn->query($all_recipe_ids);
 //    $recipearray[] = $result["recipe_name"];
 // }
 // $uniquerecipes = array_unique($recipearray);
-
+foreach ($all_recipe as $rec) {
+   echo $rec["recipe_id"] . "<br>";
+}
 if ($step->num_rows > 0) {
 
     // output data of each row
@@ -49,9 +51,12 @@ if ($step->num_rows > 0) {
       $ingredient_id = $row["ingredient_id"];
       $recipe_id = $row["recipe_id"];
 
-      foreach ($all_recipe as $rec) {
-         echo $rec["recipe_id"] . "<br>";
-      }
+      $available_ingredients = array();
+      $required_ingredients = array();
+
+      // foreach ($all_recipe as $rec) {
+      //    echo $rec["recipe_id"] . "<br>";
+      // }
 
 
 
