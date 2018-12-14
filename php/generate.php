@@ -72,6 +72,15 @@ while($row = $valid_recipe->fetch_assoc()) {
         array_push($recipe_times, $time);
      }
  }
+ $text = array();
+ // foreach ($recipe_names as $nam) {
+ //    $recipe_names[0] . " (preperation time ". $recipe_times[0]. " minutes)"
+ // }
+ for ($x = 0; $x <= count($recipe_names); $x++) {
+    $str = $recipe_names[$x] . " (preperation time ". $recipe_times[$x]. " minutes)";
+    array_push($text, $str);
+ }
+
 }
 
 
@@ -169,7 +178,7 @@ $conn->close();
 						<div class="row">
 
 						  <div class="column">
-							  <h6 id="matching_title"><?=$recipe_names[0] . " (preperation time ". $recipe_times[0]. " minutes)"?></h6>
+							  <h6 id="matching_title"><?=$text[0]?></h6>
 						  </div>
 
 						  <div class="column">
