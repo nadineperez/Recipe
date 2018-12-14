@@ -7,6 +7,7 @@
    $list2 = $_GET[ingredientList];
    $json = $_POST['myData'];
    $ingredientArray = json_decode($json,true);
+   $_SESSION["favanimal"] = $ingredientArray;
    print_r($ingredientArray);
    echo $list1;
    //$conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
