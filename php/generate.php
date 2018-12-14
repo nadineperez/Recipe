@@ -49,7 +49,7 @@ if ($step->num_rows > 0) {
 
 for ($x = 0; $x <= count($required_ingredients); $x++) {
    if ($required_ingredients[$x] == $available_ingredients[$x]) {
-      array_push($recipes_to_suggest, $required_ingredients);
+      array_push($recipes_to_suggest, $x);
    }
 }
 echo "Recipes to suggest: ";
