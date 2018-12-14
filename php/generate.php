@@ -38,11 +38,11 @@ if ($step->num_rows > 0) {
            //unset($uniquerecipes[$recipe_name]);
            //$uniquerecipes= array_flip($uniquerecipes)
            if (($key = array_search($recipe_name, $uniquerecipes)) !== false) {
+             echo "key " + $key
             unset($uniquerecipes[$key]);
-         }
+            }
         }
     }
 }
-echo $uniquerecipes;
 $conn->close();
 ?>
