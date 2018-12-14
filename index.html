@@ -55,6 +55,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
               <div class="autocomplete" style="width:300px;">
                   <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
+                  <?php
+                  // Set session variables
+                  $_SESSION["favcolor"] = "myIngredient";
+                  $_SESSION["favanimal"] = myIngredient;
+                  echo "Session variables are set.";
+                  ?>
               </div>
 
               <input type="reset" value="Add Ingredient" onclick="addList()">
