@@ -31,7 +31,7 @@ $recipes_to_suggest = array();
 
 $recipe_names = array();
 $recipe_times = array();
-$recipe_links = array("", "", "");
+$recipe_links = array();
 
 foreach ($all_recipe as $rec) {
    $index = $rec["recipe_id"];
@@ -72,7 +72,7 @@ while($row = $valid_recipe->fetch_assoc()) {
         array_push($recipe_times, $time);
      }
  }
- $text = array("", "", "");
+ $text = array();
  // foreach ($recipe_names as $nam) {
  //    $recipe_names[0] . " (preperation time ". $recipe_times[0]. " minutes)"
  // }
