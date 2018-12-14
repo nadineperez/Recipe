@@ -38,6 +38,7 @@ $to_display = $conn->query($valid);
 $recipearray = Array();
 while($result = $to_display->fetch_assoc()){
    $recipearray[] = $result["recipe_name"];
+   echo $recipearray[0];
 }
 
 
@@ -53,11 +54,10 @@ if ($step->num_rows > 0) {
 
 
         if (in_array($ingredient, $list) == FALSE) {
-
            unset($recipearray[$recipe_name]);
         }
         else {
-           echo $recipe_name;
+          // echo $recipe_name;
         }
     }
 }
