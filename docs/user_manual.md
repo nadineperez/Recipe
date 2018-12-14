@@ -1,1 +1,15 @@
-This application/website is provided to users who have tons of ingredients and are unsure of what to cook using those ingredients. This application/website will allow users to input the ingredients they have into our generator. To do so, the user types their ingredient in the ingredient box. If a suggestion pops up click on that suggestion and then click the button “add ingredient” to add the ingredient to the box below “Your Ingredients”. Repeat this until there is a list of all the ingredients the user wants. After all ingredients are listed and provided, users will be able to see a list of recipes that include those ingredients. To get the list recipes the user must click on “Generate Recipe” to see the list of recipes. After the user selects which recipe they’d like to view or use, they will then see a full view and details of the ingredients needed for the recipe, how long it’ll take to cook the dish, and how to actually make the dish step by step. 
+# User Manual
+
+This application/website is provided to users who have tons of ingredients and are unsure of what to cook using those ingredients. This application/website will allow users to input the ingredients they have into our generator. 
+
+### How to Add Ingredients
+* First the User types their ingredient in the ingredient box
+* While you are typing the ingredient there will be drop down suggestions. Click on the correct suggestion
+* Then click on the "add ingredient" button.
+* Repeat these steps until you have a full list of ingredients
+
+### How to get Recipes
+* Once all the ingredients are added to the box simply click on the button "Generate Recipe"
+* This will take you to a result page of recipes you can cook with the ingredients you put
+* Click on the recipe to see full details such as cook time, and directions on how to cook the recipe.
+
