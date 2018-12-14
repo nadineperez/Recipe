@@ -21,9 +21,8 @@ LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 foreach($list as $key => $value) {
    $table = "SELECT * FROM $table WHERE ingredient_name = $value";
 
-   echo "$key -> $value";
+   //echo "$key -> $value";
 }
-
 //session_unset();
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
@@ -40,6 +39,7 @@ while($result = $to_display->fetch_assoc()){
 $uniquerecipes = array_unique($recipearray);
 
 if ($step->num_rows > 0) {
+   echo 1;
     // output data of each row
     while($row = $step->fetch_assoc()) {
 
