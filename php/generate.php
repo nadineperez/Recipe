@@ -14,7 +14,7 @@ $list = $_SESSION["ingredientList"];
 $filtered_ingredients = "SELECT * FROM recipe_ingredient
 LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
-WHERE ingredient_name=". $list[0];
+WHERE ingredient_name= 'Paprika';
 
 //LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
@@ -37,7 +37,7 @@ if ($step->num_rows > 0) {
 
     // output data of each row
     while($row = $step->fetch_assoc()) {
-
+      echo "hello world";
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
        echo $recipe_name[0];
