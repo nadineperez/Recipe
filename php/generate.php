@@ -53,6 +53,7 @@ if ($step->num_rows > 0) {
 
 
         if (in_array($ingredient, $list) == FALSE) {
+           echo "FALSE";
            unset($uniquerecipes[$recipe_name]);
         }
     }
