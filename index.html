@@ -57,7 +57,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                   <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
               </div>
 
-              <input type="reset" value="Add Ingredient" onclick="addList()">
+              <input type="reset" value="Add Ingredient" onclick="addList(param)">
+              console.log(param)
               <div class="message" id="msg_error"></div>
 
               <div class="Main addedIngredients">
@@ -78,7 +79,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <script>
           var addedIngredients=[];
           var addedIngredientsRaw=[];
-          function addList(){
+          function addList(param=""){
             //get value from the input text already
             var inputIngr = document.getElementById("input").value;
             if (inputIngr == ""){
@@ -102,6 +103,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             }
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
+            param = inputIngr;
           }
         </script>
 
