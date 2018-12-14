@@ -169,7 +169,7 @@ $conn->close();
 						<div class="row">
 
 						  <div class="column">
-							  <h6 id="matching_title"><?=$recipe_names[0]?></h6>
+							  <h6 id="matching_title"><?=$recipe_names[0]?> + " (preperation time " + <?=$recipe_times[0]?> + " minutes)"</h6>
 						  </div>
 
 						  <div class="column">
