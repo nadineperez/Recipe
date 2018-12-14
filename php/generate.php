@@ -52,7 +52,7 @@ if ($step->num_rows > 0) {
 }
 
 for ($x = 0; $x <= count($required_ingredients); $x++) {
-   if ($required_ingredients[$x] == $available_ingredients[$x]) {
+   if ($required_ingredients[$x] == $available_ingredients[$x] && $required_ingredients[$x] != 0) {
       array_push($recipes_to_suggest, $x);
    }
 }
