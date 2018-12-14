@@ -69,7 +69,7 @@
                 <br>
               </div>
 
-              <input type="hidden" id="ing" name="ing" value=5>
+              <input type="hidden" id="ing" name="ing" value=ingredientList>
               <input type="submit" value="Generate Recipe">
            </form>
         </div>
