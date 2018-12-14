@@ -1,4 +1,4 @@
-####Final Report: Recipe Generator
+#### Final Report: Recipe Generator
 
 Our final project is called Recipe Generator. The members in this group are Alex Boellner, Anny Chau, Emi Vo, Lisa Phung, and Nadine Perez. The link to our project code is https://github.com/nadineperez/Recipe, which is on Nadine’s github. We are running the server on Lisa’s VCL account with the username being lphung. The information project we are trying to solve is people who do not know what to cook, but have plenty of ingredients in their house. This website we have created will be the solution to this information problem. This will allow users to be able to add ingredients into our generator. Our website will then come up recipes that users could view and use to cook a delicious meal. The rationales and justifications on the system design and technology is that the system combines simplicity and all of the detailed recipes into a simple user interface.
 
