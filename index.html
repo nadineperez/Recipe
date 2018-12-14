@@ -55,7 +55,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
            <form autocomplete="off" action="php/generate.php" method = "get">
 
               <div class="autocomplete" style="width:300px;">
-                 <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
+                 <form name="form" action="" method="get">
+                    <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
+                  </form>
+                  <?php echo $_GET['myIngredient']; ?>
               </div>
 
               <input type="reset" value="Add Ingredient" onclick="addList()">
@@ -110,7 +113,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                   $_SESSION["ing" . i] = addedIngredientsRaw[i];
                ?>
             }
-
           }
         </script>
 

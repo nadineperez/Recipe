@@ -19,5 +19,7 @@ for ($x = 0; $x <= 2; $x++) {
     echo "Ingredient is " . $_SESSION["ing" . $x] . ".<br>";
 }
 
+print_r($_SESSION);
+
 $conn->close();
 ?>
