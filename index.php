@@ -1,5 +1,13 @@
 <?php
    session_start();
+   // Set session variables
+   $_SESSION["favcolor"] = "ingredientList";
+   $_SESSION["favanimal"] = ingredientList;
+   echo "Session variables are set.";
+   $list = $_GET['ingredientList'];
+   $list2 = $_GET['ingredientList'];
+
+   echo $list;
    //$conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 ?>
 <html>
@@ -239,7 +247,6 @@
             closeAllLists(e.target);
          });
       }
-
       autocomplete(document.getElementsByTagName("INPUT")[0], ingredients);
       // for (var x = 1; x < cloneCount; x++) {
       //    autocomplete(document.getElementsByTagName("INPUT")[x], ingredients);
@@ -263,11 +270,3 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-<?php
-   // Set session variables
-   $_SESSION["favcolor"] = "ingredientList";
-   $_SESSION["favanimal"] = ingredientList;
-   echo "Session variables are set.";
-   $list = $_GET['ingredientList'];
-   echo $list;
-?>
