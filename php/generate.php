@@ -7,9 +7,19 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $valid = "SELECT recipe_name FROM Recipe";
 
-$table = "SELECT * FROM Recipe
-LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
-LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
+// $table = "SELECT * FROM Recipe
+// LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
+// LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
+
+$table = "SELECT r.id
+FROM Recipe AS r
+INNER JOIN recipe_ingredient AS ri ON r.id = ri.recipe_id
+INNER JOIN ingredient AS i ON i.id = ri.ingredient_id
+WHERE i.id IN (".implode(',', $list).")
+GROUP BY r.id
+HAVING COUNT(DISTINCT i.id)"
+
+
 //WHERE ingredient.ingredient_name IN ($condition)";
 //LEFT JOIN recipe_ingredient ON ingredient_id";
 //$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
@@ -33,19 +43,20 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
 $step = $conn->query($table);
+$to_display = $valid.
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
-      //echo $row["ingredient_name"];
+      echo $row["ingredient_name"];
         // if (in_array($row["ingredient_name"], $list)) {
         //    echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
         // }
-        $ingredient = $row["ingredient_name"];
-        $recipe_name = $row["recipe_name"];
-
-        if (in_array($ingredient, $list) == FALSE) {
-           unset($valid[$recipe_name]);
-        }
+        // $ingredient = $row["ingredient_name"];
+        // $recipe_name = $row["recipe_name"];
+        //
+        // if (in_array($ingredient, $list) == FALSE) {
+        //    unset($valid[$recipe_name]);
+        // }
     }
 }
 
