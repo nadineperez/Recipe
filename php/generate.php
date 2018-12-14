@@ -57,7 +57,7 @@ if ($step->num_rows > 0) {
         }
     }
 }
-print_r($uniquerecipes)
+print_r($uniquerecipes);
 
 // $finaltable = $conn->query($joined);
 // $recipes = $conn->query($recipes);
