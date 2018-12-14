@@ -35,6 +35,12 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 $step = $conn->query($table);
 $to_display = $conn->query($valid);
 
+$recipearray = Array();
+while($result = $to_display->fetch_assoc()){
+   $recipearray[] = $result["recipe_name"];
+}
+
+
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
@@ -45,17 +51,10 @@ if ($step->num_rows > 0) {
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
 
-        $array = Array();
-         //while($result = $to_display->fetch_assoc()){
-             $array[] = $row["recipe_name"];
-         //}
 
-         print_r($array);
-
-
-        // if (in_array($ingredient, $list) == FALSE) {
-        //    unset($valid['recipe_name'][$recipe_name]);
-        // }
+        if (in_array($ingredient, $list) == FALSE) {
+           unset($recipearray[$recipe_name]);
+        }
     }
 }
 
