@@ -7,6 +7,9 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
 
+echo $list
+echo $condition
+
 $ings = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
 LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
