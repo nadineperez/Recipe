@@ -8,7 +8,7 @@ $list = $_SESSION["ingredientList"];
 foreach ($list as $ingredient) {
     //$ingid = "SELECT ingredient_id FROM ingredient WHERE ingredient_name =" $ingredient;
     //$associated_recipes = "SELECT * FROM recipe_ingredient WHERE ingredient_id =" $ingid;
-    $name = "SELECT ingredient_id FROM ingredient WHERE ingredient_name = " $ingredient;
+    $name = "SELECT ingredient_id FROM ingredient WHERE ingredient_name = ". $ingredient;
 
     echo "Ingredient is " . $ingredient . ".<br>";
     echo "Ingredient name is " . $name . ".<br>";
