@@ -173,7 +173,7 @@ $conn->close();
 						  </div>
 
 						  <div class="column">
-							  <a href=<?=$recipe_links[0]?> id="matching_link">Recipe</a>
+							  <a href=<?=$recipe_links[0]?>>Recipe</a>
 						  </div>
 
 						</div>
@@ -184,12 +184,12 @@ $conn->close();
              </div>
            </div>
 
-			  <script>
+			  <!-- <script>
 	       document.getElementById('matching_title').innerHTML = names[4] + " (preperation time " + cook_times[4] + " minutes)";
 				 document.getElementById('matching_link').innerHTML = "blah"
 				 document.getElementById('matching_link').href = links[4]
 
-	        </script>
+	        </script> -->
 
        </div>
      </div>
