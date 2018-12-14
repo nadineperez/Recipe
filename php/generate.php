@@ -51,7 +51,7 @@ if ($step->num_rows > 0) {
       $available_ingredients[$recipe_id]++;
     }
 }
-print_r($required_ingredients) . "<br />";
+//print_r($required_ingredients) . "<br />";
 print_r($available_ingredients) . "<br />";
 
 for ($x = 0; $x <= count($required_ingredients); $x++) {
@@ -59,8 +59,8 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
       array_push($recipes_to_suggest, $required_ingredients);
    }
 }
-echo "Recipes to suggest: ";
-print_r($recipes_to_suggest) . "<br />";
+//echo "Recipes to suggest: ";
+//print_r($recipes_to_suggest) . "<br />";
 
 $conn->close();
 ?>
