@@ -107,7 +107,7 @@
             var request = $.ajax({
                url: "index.php",
                method: "POST",
-               data: { myData : JSON.stringify(addedIngredients) },
+               data: { myData : JSON.stringify(addedIngredientsRaw) },
                dataType: "html"
                });
                request.done(function( msg ) {
