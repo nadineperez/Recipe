@@ -105,7 +105,7 @@
             document.getElementById('ingredientList').innerHTML = inVal;
 
             var request = $.ajax({
-               url: "test.php",
+               url: "index.php",
                method: "POST",
                data: { myData : JSON.stringify(addedIngredients) },
                dataType: "html"
