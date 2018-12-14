@@ -53,12 +53,12 @@ if ($step->num_rows > 0) {
 
 
         if (in_array($ingredient, $list) == FALSE) {
-           echo "FALSE";
+           echo $recipe_name;
            unset($uniquerecipes[$recipe_name]);
         }
     }
 }
-print_r($uniquerecipes);
+//print_r($uniquerecipes);
 
 // $finaltable = $conn->query($joined);
 // $recipes = $conn->query($recipes);
