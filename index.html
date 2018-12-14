@@ -102,13 +102,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             }
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
-
-            for (i=0; i < addedIngredientsRaw.length; i++) {
-               <?php
-                  // Set session variables
-                  $_SESSION["ing" . i] = addedIngredientsRaw[i];
-               ?>
-            }
           }
         </script>
 
