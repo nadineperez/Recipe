@@ -10,7 +10,7 @@ $condition = implode(', ', $list);
 $ings = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
 LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id
-WHERE ingredient.ingredient_name IN ($condition)"";
+WHERE ingredient.ingredient_name IN ($condition)";
 //LEFT JOIN recipe_ingredient ON ingredient_id";
 //$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
 //$recipes = "SELECT recipe_name FROM $joined WHERE ingredient IN ($condition)";
