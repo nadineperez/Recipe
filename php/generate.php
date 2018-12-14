@@ -6,10 +6,11 @@ session_start();
 
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
+echo $condition;
 
-$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient.ingredient_id = recipe_ingredient.ingredient_id";
-$joined = "SELECT * FROM recipe JOIN " . $ings . " ON recipe.recipe_id = ." $ings .".recipe_id";
-$recipes = "SELECT * FROM ". $joined . " WHERE ingredient IN " . $condition;
+$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient_id";
+$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
+$recipes = "SELECT * FROM $joined WHERE ingredient IN ($condition)";
 
 //recipes = "SELECT * FROM ". $joined WHERE ingredient IN ". $list)";
 // foreach ($list as $ingredient) {
