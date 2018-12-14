@@ -5,7 +5,7 @@ session_start();
 // $ingredientId = "SELECT * FROM recipe_ingredient WHERE ingredient_id = ". $_GET['ing'];
 
 $list = $_SESSION["ingredientList"];
-echo $list[0];
+//echo $list[0];
 //echo $list[1];
 
 // substr_replace($strlist ,"", -1);
@@ -40,7 +40,7 @@ if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
 
-      //echo "id: " . $row["ingredient_name"];
+      echo "id: " . $row["ingredient_name"];
       $ingredient = $row["ingredient_name"];
       $recipe_name = $row["recipe_name"];
 
