@@ -62,7 +62,7 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
 while($row = $valid_recipe->fetch_assoc()) {
   $id = $row["recipe_id"];
   $name = $row["recipe_name"];
-  $link = $row["recipe_link"];
+  $link = $row["link"];
   $time = $row["cook_time"];
 
   for ($x = 0; $x <= count($recipes_to_suggest); $x++) {
