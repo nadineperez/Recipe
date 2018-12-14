@@ -5,11 +5,13 @@ session_start();
 // $ingredientId = "SELECT * FROM recipe_ingredient WHERE ingredient_id = ". $_GET['ing'];
 
 $list = $_SESSION["ingredientList"];
-$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient_id";
-$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
-$recipes = "SELECT * FROM $joined WHERE ingredient IN ($list)";
+$condition = implode(', ', $list);
 
-//recipes = "SELECT * FROM $joined WHERE ingredient IN ($list)";
+$ings = "SELECT * FROM ingredient JOIN recipe_ingredient ON ingredient.ingredient_id = recipe_ingredient.ingredient_id";
+$joined = "SELECT * FROM recipe JOIN " . $ings . " ON recipe.recipe_id = ." $ings .".recipe_id";
+$recipes = "SELECT * FROM ". $joined . " WHERE ingredient IN " . $condition;
+
+//recipes = "SELECT * FROM ". $joined WHERE ingredient IN ". $list)";
 // foreach ($list as $ingredient) {
 //     //$ingid = "SELECT ingredient_id FROM ingredient WHERE ingredient_name =" $ingredient;
 //     //$associated_recipes = "SELECT * FROM recipe_ingredient WHERE ingredient_id =" $ingid;
