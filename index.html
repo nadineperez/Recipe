@@ -1,5 +1,4 @@
 <?php
-   // Start the session
    session_start();
    $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 ?>
@@ -55,10 +54,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
            <form autocomplete="off" action="php/generate.php" method = "get">
 
               <div class="autocomplete" style="width:300px;">
-                 <form name="form" action="" method="get">
-                    <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
-                  </form>
-                  <?php echo $_GET['myIngredient']; ?>
+                <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
               </div>
 
               <input type="reset" value="Add Ingredient" onclick="addList()">
