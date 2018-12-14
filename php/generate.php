@@ -64,3 +64,8 @@ print_r($recipes_to_suggest) . "<br />";
 
 $conn->close();
 ?>
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="css/main_style.css">
+</head>
+</html>
