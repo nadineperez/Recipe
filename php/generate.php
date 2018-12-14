@@ -37,10 +37,10 @@ if ($step->num_rows > 0) {
 
     // output data of each row
     while($row = $step->fetch_assoc()) {
-      echo "hello world";
+      echo "id: " . $row["ingredient_name"]
         $ingredient = $row["ingredient_name"];
         $recipe_name = $row["recipe_name"];
-       echo $recipe_name[0];
+
 
         // if (in_array($ingredient, $list) == FALSE) {
         //    //unset($uniquerecipes[$recipe_name]);
