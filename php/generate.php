@@ -7,9 +7,10 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
 
-$ings = "SELECT * FROM ingredient LEFT JOIN recipe_ingredient ON ingredient_id";
-$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
-$recipes = "SELECT recipe_name FROM $joined WHERE ingredient IN ($condition)";
+$ings = "SELECT * FROM ingredient";
+//LEFT JOIN recipe_ingredient ON ingredient_id";
+//$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
+//$recipes = "SELECT recipe_name FROM $joined WHERE ingredient IN ($condition)";
 
 //recipes = "SELECT * FROM ". $joined WHERE ingredient IN ". $list)";
 // foreach ($list as $ingredient) {
@@ -28,20 +29,24 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 // Check connection
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
-$step1 = $conn->query($ings);
-$num1=$mysqli->mysqli_num_rows($step1);
-echo $num1;
-
-$finaltable = $conn->query($joined);
-$recipes = $conn->query($recipes);
-$matches = array($recipes);
-
-if ($recipes->num_rows > 0) {
+$step = $conn->query($ings);
+if ($step->num_rows > 0) {
     // output data of each row
-    while($row = $recipes->fetch_assoc()) {
-        echo "recipe id: " . $row["recipe_id"] . ".<br>";
+    while($row = $step->fetch_assoc()) {
+        echo "ing id: " . $row["ingredient_id"] . ".<br>";
     }
 }
+
+// $finaltable = $conn->query($joined);
+// $recipes = $conn->query($recipes);
+// $matches = array($recipes);
+//
+// if ($recipes->num_rows > 0) {
+//     // output data of each row
+//     while($row = $recipes->fetch_assoc()) {
+//         echo "recipe id: " . $row["recipe_id"] . ".<br>";
+//     }
+// }
 
 //print_r($_SESSION);
 
