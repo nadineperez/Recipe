@@ -7,8 +7,7 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
 
-$ings = "SELECT * FROM ingredient";
-//LEFT JOIN recipe_ingredient ON ingredient_id";
+//$ings = "SELECT * FROM ingredient LEFT JOIN recipe_ingredient ON ingredient_id";
 //$joined = "SELECT * FROM recipe JOIN $ings ON recipe_id";
 //$recipes = "SELECT recipe_name FROM $joined WHERE ingredient IN ($condition)";
 
@@ -23,16 +22,24 @@ $ings = "SELECT * FROM ingredient";
 //
 // }
 
+$table = "SELECT r.id
+FROM Recipes AS r
+LEFT JOIN Recipe_ingredients AS ri ON r.id = ri.recipe_id
+LEFT JOIN Ingredients AS i ON i.id = ri.ingredient_id
+WHERE i.id NOT IN ($condition)
+GROUP BY r.id
+HAVING COUNT(i.id) = 0";
+
 //session_unset();
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 // Check connection
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
-$step = $conn->query($ings);
+$step = $conn->query($table);
 if ($step->num_rows > 0) {
     // output data of each row
-    while($row = $step->fetch_assoc()) {
+    while($row = $table->fetch_assoc()) {
         echo "ing id: " . $row["ingredient_id"] . ".<br>";
     }
 }
