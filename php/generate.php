@@ -47,9 +47,9 @@ if ($step->num_rows > 0) {
       $ingredient = $row["ingredient_name"];
       //$recipe_name = $row["recipe_name"];
       $ingredient_id = $row["ingredient_id"];
-
       $recipe_id = $row["recipe_id"];
-      foreach ($recipe_id as $rec) {
+      
+      foreach ($all_recipe as $rec) {
          echo "$rec <br>";
       }
 
