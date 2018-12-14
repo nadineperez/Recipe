@@ -1,12 +1,13 @@
 <?php
    session_start();
    // Set session variables
-   $_SESSION["favcolor"] = ingredientList;
    $_SESSION["favanimal"] = $_GET['ingredientList'];
    echo "Session variables are set.";
    $list1 = $_GET['ingredientList'];
    $list2 = $_GET[ingredientList];
-
+   $json = $_POST['myData'];
+   $ingredientArray = json_decode($json,true);
+   print_r($ingredientArray);
    echo $list1;
    //$conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 ?>
@@ -102,6 +103,19 @@
             }
             //display array dataset
             document.getElementById('ingredientList').innerHTML = inVal;
+
+            var request = $.ajax({
+               url: "test.php",
+               method: "POST",
+               data: { myData : JSON.stringify(addedIngredients) },
+               dataType: "html"
+               });
+               request.done(function( msg ) {
+               // ajax response
+               });
+               request.fail(function( jqXHR, textStatus ) {
+               alert( "Request failed: " + textStatus );
+            });
           }
         </script>
 
