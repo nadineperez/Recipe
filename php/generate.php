@@ -5,7 +5,7 @@ session_start();
 // $ingredientId = "SELECT * FROM recipe_ingredient WHERE ingredient_id = ". $_GET['ing'];
 
 $list = $_SESSION["ingredientList"];
-$condition = implode(', ', $list);
+$valid = "SELECT recipe_name FROM Recipe";
 
 $table = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
@@ -37,8 +37,16 @@ if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
       //echo $row["ingredient_name"];
-        if (in_array($row["ingredient_name"], $list)) {
-           echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
+        // if (in_array($row["ingredient_name"], $list)) {
+        //    echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
+        // }
+        $ingredient = $row["ingredient_name"];
+        $recipe_name = $row["recipe_name"];
+
+        if (in_array($name, $list) == FALSE) {
+           if (($key = array_search($recipe_name, $valid)) !== false) {
+                unset($recipe_name[$key]);
+            }
         }
     }
 }
