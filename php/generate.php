@@ -46,11 +46,11 @@ if ($step->num_rows > 0) {
         $recipe_name = $row["recipe_name"];
 
         $array = Array();
-         while($result = $to_display->fetch_assoc()){
-             $array[] = $result['recipe_name'];
-         }
+         //while($result = $to_display->fetch_assoc()){
+             $array[] = $row["recipe_name"];
+         //}
 
-         print_r($array[0]);
+         print_r($array);
 
 
         // if (in_array($ingredient, $list) == FALSE) {
