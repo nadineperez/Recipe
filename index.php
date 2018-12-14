@@ -48,14 +48,6 @@
 
               <div class="autocomplete" style="width:300px;">
                   <input id="input" type="text" name="myIngredient" placeholder="Ingredient">
-                  <?php
-                     // Set session variables
-                     $_SESSION["favcolor"] = "myIngredient";
-                     $_SESSION["favanimal"] = myIngredient;
-                     echo "Session variables are set.";
-                     $list = $_GET['myIngredient'];
-                     echo $list;
-                  ?>
               </div>
 
               <input type="reset" value="Add Ingredient" onclick="addList()">
@@ -74,6 +66,14 @@
            </form>
         </div>
 
+        <?php
+           // Set session variables
+           $_SESSION["favcolor"] = "ingredientList";
+           $_SESSION["favanimal"] = ingredientList;
+           echo "Session variables are set.";
+           $list = $_GET['ingredientList'];
+           echo $list;
+        ?>
 
         <!-- ADDING THE INPUT INGREDIENTS INTO AN ARRAY -->
         <script>
