@@ -173,7 +173,7 @@ $conn->close();
 						  </div>
 
 						  <div class="column">
-							  <a href="url" id="matching_link"></a>
+							  <a href=<?=$recipe_links[0]?> id="matching_link">Recipe</a>
 						  </div>
 
 						</div>
