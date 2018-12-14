@@ -6,7 +6,7 @@ $list = $_SESSION["ingredientList"];
 $filtered_ingredients = "SELECT * FROM recipe_ingredient
 LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
-WHERE ingredient_name IN ""(" . implode("','", $list) . ")";
+WHERE ingredient_name IN ('Paprika', 'Salt', 'Onion')";
 
 $valid_recipes = "SELECT * FROM Recipe";
 
@@ -31,6 +31,7 @@ $valid_recipe = $conn->query($valid_recipes);
 // $uniquerecipes = array_unique($recipearray);
 $available_ingredients = array();
 $required_ingredients = array();
+$recipes_to_suggest = array();
 
 foreach ($all_recipe as $rec) {
    $index = $rec["recipe_id"];
@@ -40,10 +41,10 @@ foreach ($all_recipe as $rec) {
 
 if ($step->num_rows > 0) {
 
-      echo "hello";
     // output data of each row
     while($row = $step->fetch_assoc()) {
       $ingredient = $row["ingredient_name"];
+      //$recipe_name = $row["recipe_name"];
       $ingredient_id = $row["ingredient_id"];
       $recipe_id = $row["recipe_id"];
 
@@ -52,6 +53,14 @@ if ($step->num_rows > 0) {
 }
 print_r($required_ingredients) . "<br />";
 print_r($available_ingredients) . "<br />";
+
+for ($x = 0; $x <= count($required_ingredients); $x++) {
+   if ($required_ingredients[$x] == $available_ingredients[$x]) {
+      array_push($recipes_to_suggest, $required_ingredients)
+   }
+}
+echo "Recipes to suggest: "
+print_r($recipes_to_suggest) . "<br />";
 
 $conn->close();
 ?>
