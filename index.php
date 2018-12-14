@@ -66,15 +66,6 @@
            </form>
         </div>
 
-        <?php
-           // Set session variables
-           $_SESSION["favcolor"] = "ingredientList";
-           $_SESSION["favanimal"] = ingredientList;
-           echo "Session variables are set.";
-           $list = $_GET['ingredientList'];
-           echo $list;
-        ?>
-
         <!-- ADDING THE INPUT INGREDIENTS INTO AN ARRAY -->
         <script>
           var addedIngredients=[];
@@ -272,5 +263,11 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-<!-- <?php
-?> -->
+<?php
+   // Set session variables
+   $_SESSION["favcolor"] = "ingredientList";
+   $_SESSION["favanimal"] = ingredientList;
+   echo "Session variables are set.";
+   $list = $_GET['ingredientList'];
+   echo $list;
+?>
