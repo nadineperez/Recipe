@@ -56,7 +56,7 @@ print_r($available_ingredients) . "<br />";
 
 for ($x = 0; $x <= count($required_ingredients); $x++) {
    if ($required_ingredients[$x] == $available_ingredients[$x]) {
-      array_push($recipes_to_suggest, $required_ingredients)
+      array_push($recipes_to_suggest, $required_ingredients);
    }
 }
 echo "Recipes to suggest: "
