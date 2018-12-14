@@ -50,7 +50,7 @@ if ($step->num_rows > 0) {
       $recipe_id = $row["recipe_id"];
 
       foreach ($all_recipe as $rec) {
-         echo "$rec['recipe_id'] <br>";
+         echo $rec["recipe_id"] . "<br>";
       }
 
 
