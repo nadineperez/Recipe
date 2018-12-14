@@ -30,7 +30,7 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
 $step1 = $conn->query($ings);
 $num1=$mysqli->mysqli_num_rows($step1);
-echo $num1
+echo $num1;
 
 $finaltable = $conn->query($joined);
 $recipes = $conn->query($recipes);
