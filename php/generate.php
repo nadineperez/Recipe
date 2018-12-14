@@ -63,7 +63,7 @@ while($row = $valid_recipe->fetch_assoc()) {
   $id = $row["recipe_id"];
   $name = $row["recipe_name"];
   $link = $row["recipe_link"];
-  $time = $row["recipe_time"];
+  $time = $row["cook_time"];
 
   for ($x = 0; $x <= count($recipes_to_suggest); $x++) {
      if ($recipes_to_suggest[$x] == $id) {
@@ -169,7 +169,7 @@ $conn->close();
 						<div class="row">
 
 						  <div class="column">
-							  <h6 id="matching_title"></h6>
+							  <h6 id="matching_title"><?=$recipe_names[0]?></h6>
 						  </div>
 
 						  <div class="column">
