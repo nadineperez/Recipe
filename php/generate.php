@@ -66,7 +66,7 @@ while($row = $valid_recipe->fetch_assoc()) {
   $time = $row["cook_time"];
 
   for ($x = 0; $x <= count($recipes_to_suggest); $x++) {
-     if ($recipes_to_suggest[$x] == $id) {
+     if ($recipes_to_suggest[$x] == $id && is_null($name) == FALSE) {
         array_push($recipe_names, $name);
         array_push($recipe_links, $link);
         array_push($recipe_times, $time);
