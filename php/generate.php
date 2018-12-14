@@ -43,6 +43,6 @@ if ($step->num_rows > 0) {
         }
     }
 }
-print_r($uniquerecipes);
+echo $uniquerecipes;
 $conn->close();
 ?>
