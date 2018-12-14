@@ -2,12 +2,12 @@
 session_start();
 
 $list = $_SESSION["ingredientList"];
-
+$param = trim(json_encode(array_map('strval', $list)), '[]');
 $filtered_ingredients = "SELECT * FROM recipe_ingredient
 LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
-WHERE ingredient_name IN ('Paprika', 'Salt', 'Onion')";
-
+WHERE ingredient_name IN ($param)";
+//'Paprika', 'Salt', 'Onion'
 $valid_recipes = "SELECT * FROM Recipe";
 
 $all_recipe_ids = "SELECT recipe_id FROM recipe_ingredient";
@@ -59,7 +59,7 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
       array_push($recipes_to_suggest, $required_ingredients);
    }
 }
-echo "Recipes to suggest: "
+echo "Recipes to suggest: ";
 print_r($recipes_to_suggest) . "<br />";
 
 $conn->close();
