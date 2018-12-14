@@ -6,7 +6,7 @@ session_start();
 
 $list = $_SESSION["ingredientList"];
 echo $list[0];
-echo $list[1];
+//echo $list[1];
 
 // substr_replace($strlist ,"", -1);
 // echo ($strlist);
@@ -16,7 +16,7 @@ echo $list[1];
 $filtered_ingredients = "SELECT * FROM recipe_ingredient
 LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
-WHERE ingredient_name= 'Paprika'";
+WHERE ingredient_name= $list[0]";
 
 //LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
