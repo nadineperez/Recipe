@@ -52,8 +52,8 @@ for ($x = 0; $x <= count($required_ingredients); $x++) {
       array_push($recipes_to_suggest, $required_ingredients);
    }
 }
-//echo "Recipes to suggest: ";
-//print_r($recipes_to_suggest) . "<br />";
+echo "Recipes to suggest: ";
+print_r($recipes_to_suggest) . "<br />";
 
 $conn->close();
 ?>
