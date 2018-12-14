@@ -149,7 +149,7 @@ $conn->close();
            <div class="result">
 
              <div class="left_matching">
-               <h4 class="txt1">Recipes you can make right <?=$available_ingredients[0]?> now!</h4>
+               <h4 class="txt1">Recipes you can make right <?=print_r($available_ingredients)?> now!</h4>
 
 					<div id="matched">
 
