@@ -1,13 +1,13 @@
 <?php
    session_start();
    // Set session variables
-   $_SESSION["favcolor"] = "ingredientList";
-   $_SESSION["favanimal"] = ingredientList;
+   $_SESSION["favcolor"] = ingredientList;
+   $_SESSION["favanimal"] = $_GET['ingredientList'];
    echo "Session variables are set.";
-   $list = $_GET['ingredientList'];
-   $list2 = $_GET['ingredientList'];
+   $list1 = $_GET['ingredientList'];
+   $list2 = $_GET[ingredientList];
 
-   echo $list;
+   echo $list1;
    //$conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 ?>
 <html>
