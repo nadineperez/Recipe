@@ -18,6 +18,7 @@ LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
 WHERE ingredient_name IN ('Paprika', 'Salt', 'Onion')";
 
+$all_recipe_ids = "SELECT recipe_id FROM recipe_ingredient";
 //LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
 
@@ -28,6 +29,7 @@ $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error());
 
 $step = $conn->query($filtered_ingredients);
+$all_recipe = $conn->query($all_recipe_ids);
 
 // $recipearray = Array();
 // while($result = $to_display->fetch_assoc()){
@@ -40,9 +42,17 @@ if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
 
-      echo "name: " . $row["ingredient_name"] . " ingredient id: " . $row["ingredient_id"] . " recipe id: " . $row["recipe_id"] . "<br />";
+      echo "ingredient id: " . $row["ingredient_id"] . " recipe id: " . $row["recipe_id"] . "<br />";
+
       $ingredient = $row["ingredient_name"];
-      $recipe_name = $row["recipe_name"];
+      //$recipe_name = $row["recipe_name"];
+      $ingredient_id = $row["ingredient_id"];
+
+      $recipe_id = $row["recipe_id"];
+      foreach ($recipe_id as $rec) {
+         echo "$rec <br>";
+      }
+
 
 
         // if (in_array($ingredient, $list) == FALSE) {
