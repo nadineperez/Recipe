@@ -50,7 +50,7 @@ if ($step->num_rows > 0) {
              $array[] = $result['recipe_name'];
          }
 
-         print_r($array);
+         print_r($array[0]);
 
 
         // if (in_array($ingredient, $list) == FALSE) {
