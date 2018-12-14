@@ -74,8 +74,8 @@ if ($step->num_rows > 0) {
         // }
     }
 }
-print_r($required_ingredients) . "<br>";
-print_r($available_ingredients) . "<br>";
+print_r($required_ingredients) . "<br />";
+print_r($available_ingredients) . "<br />";
 
 $conn->close();
 ?>
