@@ -24,11 +24,11 @@ $condition = implode(', ', $list);
 
 $table = "SELECT r.id
 FROM Recipes AS r
-LEFT JOIN Recipe_ingredients AS ri ON r.id = ri.recipe_id
-LEFT JOIN Ingredients AS i ON i.id = ri.ingredient_id
-WHERE i.id NOT IN ($condition)
-GROUP BY r.id
-HAVING COUNT(i.id) = 0";
+LEFT JOIN recipe_ingredients AS ri ON r.id = ri.recipe_id
+LEFT JOIN ingredients AS i ON i.id = ri.ingredient_id
+WHERE i.id IN ($condition);
+-- GROUP BY r.id
+-- HAVING COUNT(i.id) = 0";
 
 //session_unset();
 // Create connection
