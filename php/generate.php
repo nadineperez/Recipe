@@ -14,7 +14,7 @@ $list = $_SESSION["ingredientList"];
 $filtered_ingredients = "SELECT * FROM recipe_ingredient
 LEFT JOIN ingredient
 ON ingredient.ingredient_id = recipe_ingredient.ingredient_id
-WHERE ingredient_name= 'Paprika';
+WHERE ingredient_name= 'Paprika'";
 
 //LEFT JOIN ingredient ON ingredient.ingredient_id=ingredient.ingredient_id";
 
