@@ -1,7 +1,7 @@
 <?php
 session_start();
 $namequery = "SELECT ingredient_name FROM ingredient WHERE ingredient_id = ". $_GET['ing'];
-$list = $_SESSION["favanimal"];
+$list = $_SESSION["ingredientList"];
 // Create connection
 $conn = new mysqli('localhost', 'root', 'inst377', 'Recipedatabase');
 
@@ -18,8 +18,12 @@ if ($result->num_rows > 0) {
     }
 }
 
-for ($x = 0; $x <= 2; $x++) {
-    echo "Ingredient is " . $_SESSION["ing" . $x] . ".<br>";
+// for ($x = 0; $x <= 2; $x++) {
+//     echo "Ingredient is " . $_SESSION["ing" . $x] . ".<br>";
+// }
+
+foreach ($list as $value) {
+    echo "Ingredient is " . $value . ".<br>";
 }
 
 print_r($_SESSION);
