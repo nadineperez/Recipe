@@ -7,8 +7,8 @@ session_start();
 $list = $_SESSION["ingredientList"];
 $condition = implode(', ', $list);
 
-echo $list;
-echo $condition;
+echo "list" . $list;
+echo "condition". $condition;
 
 $ings = "SELECT * FROM Recipe
 LEFT JOIN recipe_ingredient ON Recipe.recipe_id=recipe_ingredient.recipe_id
@@ -39,7 +39,7 @@ $step = $conn->query($ings);
 if ($step->num_rows > 0) {
     // output data of each row
     while($row = $step->fetch_assoc()) {
-        if (in_array($row["ingredient_name"], $list)) {
+        if (in_array($row["ingredient_name"], $condition)) {
            echo "recipe name: " . $row["recipe_name"] . " ingredient id: " . $row["ingredient_name"] . ".<br>";
         }
     }
